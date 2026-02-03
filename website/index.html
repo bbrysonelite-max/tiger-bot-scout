@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiger Bot Scout | AI Recruiting Partner by BotCraftWrks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tiger: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+        .card-glow {
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+        }
+        .tiger-stripes {
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(249, 115, 22, 0.03) 10px,
+                rgba(249, 115, 22, 0.03) 20px
+            );
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-slate-950 text-white font-sans">
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-lg border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-br from-tiger-500 to-tiger-700 rounded-xl flex items-center justify-center text-xl font-bold">T</div>
+                <span class="text-xl font-bold">Tiger Bot <span class="text-tiger-500">Scout</span></span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-slate-400">
+                <a href="#features" class="hover:text-white transition">Features</a>
+                <a href="#how-it-works" class="hover:text-white transition">How It Works</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <a href="dashboard.html" class="hover:text-white transition">Dashboard</a>
+            </div>
+            <a href="https://stan.store/bbrysonelite" target="_blank" class="bg-tiger-600 hover:bg-tiger-500 px-5 py-2.5 rounded-lg font-semibold transition">
+                Get Started
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-gradient min-h-screen flex items-center pt-20 tiger-stripes">
+        <div class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-tiger-500/10 border border-tiger-500/20 rounded-full px-4 py-2 text-tiger-400 text-sm mb-6">
+                    <span class="w-2 h-2 bg-tiger-500 rounded-full animate-pulse"></span>
+                    AI-Powered Recruiting
+                </div>
+                <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    5 Fresh Prospects<br>
+                    <span class="gradient-text">Every Morning</span>
+                </h1>
+                <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+                    Tiger Bot Scout finds qualified prospects while you sleep, scores them, and delivers personalized approach scripts straight to your Telegram.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://stan.store/bbrysonelite" target="_blank" class="bg-tiger-600 hover:bg-tiger-500 px-8 py-4 rounded-xl font-semibold text-lg text-center transition transform hover:scale-105">
+                        Start Free Trial
+                    </a>
+                    <a href="#how-it-works" class="border border-slate-700 hover:border-slate-600 px-8 py-4 rounded-xl font-semibold text-lg text-center transition">
+                        See How It Works
+                    </a>
+                </div>
+                <div class="mt-10 flex items-center gap-6 text-slate-500 text-sm">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        No credit card required
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                        Cancel anytime
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 card-glow float">
+                    <!-- Mock Telegram UI -->
+                    <div class="flex items-center gap-3 mb-4 pb-4 border-b border-slate-800">
+                        <div class="w-12 h-12 bg-gradient-to-br from-tiger-500 to-tiger-700 rounded-full flex items-center justify-center text-2xl">🐯</div>
+                        <div>
+                            <div class="font-semibold">Tiger Bot Scout</div>
+                            <div class="text-sm text-green-500">online</div>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-slate-800 rounded-xl rounded-tl-none p-3 max-w-xs">
+                            <div class="text-sm font-semibold text-tiger-400 mb-1">Daily Report - Feb 3</div>
+                            <div class="text-sm text-slate-300">Found 5 prospects today:</div>
+                            <div class="text-sm mt-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-green-400">🔥</span>
+                                    <span>Somchai K. - Score: 85</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-green-400">✅</span>
+                                    <span>Nattaya P. - Score: 78</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-tiger-600 rounded-xl rounded-tr-none p-3 max-w-xs ml-auto">
+                            <div class="text-sm">/script Somchai</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl rounded-tl-none p-3 max-w-xs">
+                            <div class="text-sm text-slate-300">
+                                "Hey Somchai! Saw your post about looking for side income - I felt the same way a year ago. Mind if I share what's been working for me?"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Your AI Recruiting <span class="gradient-text">Command Center</span></h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">Everything you need to find, qualify, and approach prospects — delivered to Telegram.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-tiger-500/50 transition">
+                    <div class="w-14 h-14 bg-tiger-500/10 rounded-xl flex items-center justify-center text-3xl mb-6">🔍</div>
+                    <h3 class="text-xl font-semibold mb-3">Prospect Discovery</h3>
+                    <p class="text-slate-400">AI scans social media 24/7 for buying signals — people actively looking for opportunities.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-tiger-500/50 transition">
+                    <div class="w-14 h-14 bg-tiger-500/10 rounded-xl flex items-center justify-center text-3xl mb-6">📊</div>
+                    <h3 class="text-xl font-semibold mb-3">Smart Scoring</h3>
+                    <p class="text-slate-400">Every prospect scored 0-100 based on signal strength. Focus on the hottest leads first.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-tiger-500/50 transition">
+                    <div class="w-14 h-14 bg-tiger-500/10 rounded-xl flex items-center justify-center text-3xl mb-6">📝</div>
+                    <h3 class="text-xl font-semibold mb-3">Approach Scripts</h3>
+                    <p class="text-slate-400">AI-generated personalized opening messages. Natural, warm, not salesy.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-tiger-500/50 transition">
+                    <div class="w-14 h-14 bg-tiger-500/10 rounded-xl flex items-center justify-center text-3xl mb-6">💬</div>
+                    <h3 class="text-xl font-semibold mb-3">Objection Handling</h3>
+                    <p class="text-slate-400">"I don't have time" — get instant AI responses that reframe and move forward.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-tiger-500/50 transition">
+                    <div class="w-14 h-14 bg-tiger-500/10 rounded-xl flex items-center justify-center text-3xl mb-6">📱</div>
+                    <h3 class="text-xl font-semibold mb-3">Telegram Delivery</h3>
+                    <p class="text-slate-400">Daily reports at 7 AM. On-demand commands anytime. Everything in your pocket.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 hover:border-tiger-500/50 transition">
+                    <div class="w-14 h-14 bg-tiger-500/10 rounded-xl flex items-center justify-center text-3xl mb-6">🎯</div>
+                    <h3 class="text-xl font-semibold mb-3">You Send the Message</h3>
+                    <p class="text-slate-400">Scout finds and scripts. You copy and send. Authentic, compliant, effective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-24 bg-slate-950 tiger-stripes">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">How It <span class="gradient-text">Works</span></h2>
+                <p class="text-xl text-slate-400">Three simple steps to a full pipeline</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-tiger-500 to-tiger-700 rounded-2xl flex items-center justify-center text-3xl font-bold mx-auto mb-6">1</div>
+                    <h3 class="text-2xl font-semibold mb-3">Subscribe</h3>
+                    <p class="text-slate-400">Sign up, connect Telegram, and you're live in under 2 minutes.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-tiger-500 to-tiger-700 rounded-2xl flex items-center justify-center text-3xl font-bold mx-auto mb-6">2</div>
+                    <h3 class="text-2xl font-semibold mb-3">Wake Up to Prospects</h3>
+                    <p class="text-slate-400">Every morning, Tiger Bot delivers qualified leads with personalized scripts.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-tiger-500 to-tiger-700 rounded-2xl flex items-center justify-center text-3xl font-bold mx-auto mb-6">3</div>
+                    <h3 class="text-2xl font-semibold mb-3">Copy & Connect</h3>
+                    <p class="text-slate-400">Use the scripts, handle objections with AI help, and close deals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-24 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Simple <span class="gradient-text">Pricing</span></h2>
+                <p class="text-xl text-slate-400">One plan. Everything included. No upsells.</p>
+            </div>
+            <div class="max-w-lg mx-auto">
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl border border-tiger-500/30 p-10 card-glow">
+                    <div class="text-center">
+                        <div class="text-tiger-400 font-semibold mb-2">SCOUT</div>
+                        <div class="text-5xl font-bold mb-2">$99<span class="text-xl text-slate-400">/mo</span></div>
+                        <p class="text-slate-400 mb-8">Everything you need to fill your pipeline</p>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-tiger-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>3-5 qualified prospects daily</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-tiger-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>AI scoring & prioritization</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-tiger-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Personalized approach scripts</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-tiger-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Unlimited objection handling</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-tiger-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Morning Telegram reports</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-tiger-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            <span>Pipeline dashboard</span>
+                        </li>
+                    </ul>
+                    <a href="https://stan.store/bbrysonelite" target="_blank" class="block w-full bg-tiger-600 hover:bg-tiger-500 py-4 rounded-xl font-semibold text-lg text-center transition">
+                        Start 7-Day Free Trial
+                    </a>
+                    <p class="text-center text-slate-500 text-sm mt-4">No credit card required to start</p>
+                </div>
+            </div>
+            <div class="text-center mt-12 text-slate-500">
+                <p>Coming soon: <span class="text-tiger-400">Coach</span> ($197/mo) and <span class="text-tiger-400">Closer</span> ($297/mo) tiers</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 bg-gradient-to-br from-tiger-600 to-tiger-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Fill Your Pipeline?</h2>
+            <p class="text-xl text-tiger-100 mb-10">Join distributors who wake up to qualified prospects every morning.</p>
+            <a href="https://stan.store/bbrysonelite" target="_blank" class="inline-block bg-white text-tiger-600 px-10 py-4 rounded-xl font-semibold text-lg hover:bg-tiger-50 transition transform hover:scale-105">
+                Get Tiger Bot Scout Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-tiger-500 to-tiger-700 rounded-xl flex items-center justify-center text-xl font-bold">T</div>
+                    <span class="text-xl font-bold">Tiger Bot <span class="text-tiger-500">Scout</span></span>
+                </div>
+                <div class="text-slate-500 text-sm">
+                    A <a href="https://botcraftwrks.ai" class="text-tiger-400 hover:underline">BotCraftWrks.ai</a> product
+                </div>
+                <div class="flex items-center gap-6 text-slate-400">
+                    <a href="#" class="hover:text-white transition">Terms</a>
+                    <a href="#" class="hover:text-white transition">Privacy</a>
+                    <a href="mailto:support@botcraftwrks.ai" class="hover:text-white transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
