@@ -18,6 +18,24 @@ interface ProspectRow {
   platform_link: string;
 }
 
+interface ScriptFeedback {
+  id: string;
+  tenant_id: string;
+  prospect_id: string;
+  script_text: string;
+  script_type: string;
+  feedback: 'no_response' | 'got_reply' | 'converted' | null;
+  feedback_at: Date | null;
+  created_at: Date;
+}
+
+// Feedback button labels
+const FEEDBACK_OPTIONS = {
+  no_response: { label: '👎 No Response', value: 'no_response' },
+  got_reply: { label: '👍 Got Reply', value: 'got_reply' },
+  converted: { label: '🎯 Converted!', value: 'converted' }
+};
+
 export function startTelegramBot(db: Pool) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   if (!token) {
@@ -193,9 +211,29 @@ Keep it conversational and authentic. This is for Nu Skin wellness/health produc
       });
 
       const script = response.content[0].type === 'text' ? response.content[0].text : '';
+
+      // Store script in database for feedback tracking
+      const scriptRecord = await db.query(
+        `INSERT INTO script_feedback (prospect_id, script_text, script_type, tenant_id)
+         VALUES ($1, $2, $3, $4) RETURNING id`,
+        [prospect.id, script, 'approach', process.env.DEFAULT_TENANT_ID || 'default']
+      ).catch(() => null);
+
+      const scriptId = scriptRecord?.rows[0]?.id || 'unknown';
+
+      // Send script with feedback buttons
       bot.sendMessage(msg.chat.id,
         `${TIGER_EMOJI} *Approach Script — ${prospect.name}*\nScore: ${prospect.ai_score}/100 | Source: ${prospect.source}\n\n${script}`,
-        { parse_mode: 'Markdown' }
+        {
+          parse_mode: 'Markdown',
+          reply_markup: {
+            inline_keyboard: [[
+              { text: FEEDBACK_OPTIONS.no_response.label, callback_data: `feedback:${scriptId}:no_response` },
+              { text: FEEDBACK_OPTIONS.got_reply.label, callback_data: `feedback:${scriptId}:got_reply` },
+              { text: FEEDBACK_OPTIONS.converted.label, callback_data: `feedback:${scriptId}:converted` }
+            ]]
+          }
+        }
       );
     } catch (err) {
       console.error('Script error:', err);
@@ -239,6 +277,68 @@ Keep it conversational, 2-4 sentences max. Like texting a friend, not a sales pi
     } catch (err) {
       console.error('Objection error:', err);
       bot.sendMessage(msg.chat.id, '❌ Error generating response.');
+    }
+  });
+
+  // ---- Feedback callback handler ----
+  bot.on('callback_query', async (query) => {
+    if (!query.data?.startsWith('feedback:')) return;
+    if (!query.message) return;
+    if (!isAllowed(query.message.chat.id)) return;
+
+    const [, scriptId, feedbackType] = query.data.split(':');
+
+    try {
+      // Update feedback in database
+      await db.query(
+        `UPDATE script_feedback SET feedback = $1, feedback_at = NOW() WHERE id = $2`,
+        [feedbackType, scriptId]
+      );
+
+      // If successful (got_reply or converted), add to hive learnings
+      if (feedbackType === 'got_reply' || feedbackType === 'converted') {
+        const scriptRecord = await db.query(
+          `SELECT sf.script_text, sf.script_type, l.source, l.notes
+           FROM script_feedback sf
+           LEFT JOIN leads l ON sf.prospect_id = l.id
+           WHERE sf.id = $1`,
+          [scriptId]
+        );
+
+        if (scriptRecord.rows.length > 0) {
+          const { script_text, script_type, source, notes } = scriptRecord.rows[0];
+          await db.query(
+            `INSERT INTO hive_learnings (learning_type, content, context, success_count)
+             VALUES ($1, $2, $3, 1)
+             ON CONFLICT (content) DO UPDATE SET success_count = hive_learnings.success_count + 1`,
+            [
+              `winning_${script_type}`,
+              script_text,
+              JSON.stringify({ source, signal: notes, feedback: feedbackType })
+            ]
+          );
+          console.log(`${TIGER_EMOJI} Hive learning added: ${feedbackType} script`);
+        }
+      }
+
+      // Acknowledge the callback
+      const emoji = feedbackType === 'converted' ? '🎯' : feedbackType === 'got_reply' ? '👍' : '👎';
+      const message = feedbackType === 'converted'
+        ? 'Awesome! 🎉 Script marked as converted. Added to Hive learnings!'
+        : feedbackType === 'got_reply'
+        ? 'Great! Script marked as successful. Added to Hive learnings!'
+        : 'Thanks for the feedback. We\'ll improve!';
+
+      bot.answerCallbackQuery(query.id, { text: `${emoji} Feedback recorded!` });
+      bot.editMessageReplyMarkup({ inline_keyboard: [] }, {
+        chat_id: query.message.chat.id,
+        message_id: query.message.message_id
+      });
+      bot.sendMessage(query.message.chat.id, message);
+
+    } catch (err) {
+      console.error('Feedback error:', err);
+      bot.answerCallbackQuery(query.id, { text: '❌ Error saving feedback' });
     }
   });
 
