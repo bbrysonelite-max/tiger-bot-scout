@@ -49,6 +49,11 @@
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                 Communications
             </a>
+            <a href="#customers" onclick="showSection('customers')" class="nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 transition" data-section="customers">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                Customers
+                <span class="ml-auto bg-tiger-500 text-white text-xs px-2 py-0.5 rounded-full">7</span>
+            </a>
             <a href="#bots" onclick="showSection('bots')" class="nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-800 transition" data-section="bots">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 Bot Fleet
@@ -116,11 +121,11 @@
                 </div>
                 <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-slate-400">Active Bots</span>
-                        <span class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500">🤖</span>
+                        <span class="text-slate-400">Customers</span>
+                        <span class="w-10 h-10 bg-tiger-500/10 rounded-xl flex items-center justify-center text-tiger-500">👥</span>
                     </div>
-                    <div class="text-3xl font-bold" id="stat-bots">4</div>
-                    <div class="text-sm text-green-400 mt-1">All systems online</div>
+                    <div class="text-3xl font-bold" id="stat-customers">7</div>
+                    <div class="text-sm text-yellow-400 mt-1">7 pending setup • $693/mo</div>
                 </div>
                 <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
                     <div class="flex items-center justify-between mb-4">
@@ -442,6 +447,237 @@
                 <div class="p-6 text-center text-slate-500 py-12">
                     <p>Unified inbox coming soon</p>
                     <p class="text-sm mt-2">See all Telegram + LINE + Messenger conversations in one place</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CUSTOMERS SECTION ============ -->
+        <section id="section-customers" class="section-content hidden">
+            <div class="mb-8 flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold">Customers</h2>
+                    <p class="text-slate-400">7 Tiger Bot subscribers • $693/mo MRR</p>
+                </div>
+                <button onclick="openAddCustomer()" class="bg-tiger-600 hover:bg-tiger-500 px-5 py-2.5 rounded-lg font-semibold transition flex items-center gap-2">
+                    <span>+</span> Add Customer
+                </button>
+            </div>
+
+            <!-- Customer Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-slate-900 rounded-xl border border-slate-800 p-4 text-center">
+                    <div class="text-3xl font-bold text-tiger-400">7</div>
+                    <div class="text-sm text-slate-400">Total Customers</div>
+                </div>
+                <div class="bg-slate-900 rounded-xl border border-slate-800 p-4 text-center">
+                    <div class="text-3xl font-bold text-yellow-400">7</div>
+                    <div class="text-sm text-slate-400">Pending Setup</div>
+                </div>
+                <div class="bg-slate-900 rounded-xl border border-slate-800 p-4 text-center">
+                    <div class="text-3xl font-bold text-green-400">0</div>
+                    <div class="text-sm text-slate-400">Active</div>
+                </div>
+                <div class="bg-slate-900 rounded-xl border border-slate-800 p-4 text-center">
+                    <div class="text-3xl font-bold text-green-400">$693</div>
+                    <div class="text-sm text-slate-400">Monthly Revenue</div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Customer 1: Nancy Lim -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center text-2xl">👩</div>
+                            <div>
+                                <h3 class="font-semibold">Nancy Lim</h3>
+                                <p class="text-slate-400 text-sm">nancylimsk@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500/10 text-yellow-400 text-xs px-2 py-1 rounded-full">⏳ Pending Setup</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Plan</div>
+                            <div class="font-medium">Scout $99/mo</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Signed Up</div>
+                            <div class="font-medium">Feb 3, 2026</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="setupCustomerBot('nancy')" class="flex-1 bg-tiger-600 hover:bg-tiger-500 py-2 rounded-lg font-medium text-sm transition">Deploy Bot</button>
+                        <button onclick="contactCustomer('nancylimsk@gmail.com')" class="px-3 bg-slate-800 hover:bg-slate-700 py-2 rounded-lg transition">✉️</button>
+                    </div>
+                </div>
+
+                <!-- Customer 2: Chana Lohasaptawee -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-2xl">👩</div>
+                            <div>
+                                <h3 class="font-semibold">Chana Lohasaptawee</h3>
+                                <p class="text-slate-400 text-sm">chana.loh@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500/10 text-yellow-400 text-xs px-2 py-1 rounded-full">⏳ Pending Setup</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Plan</div>
+                            <div class="font-medium">Scout $99/mo</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Signed Up</div>
+                            <div class="font-medium">Feb 3, 2026</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="setupCustomerBot('chana')" class="flex-1 bg-tiger-600 hover:bg-tiger-500 py-2 rounded-lg font-medium text-sm transition">Deploy Bot</button>
+                        <button onclick="contactCustomer('chana.loh@gmail.com')" class="px-3 bg-slate-800 hover:bg-slate-700 py-2 rounded-lg transition">✉️</button>
+                    </div>
+                </div>
+
+                <!-- Customer 3: Phaitoon S. -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center text-2xl">👨</div>
+                            <div>
+                                <h3 class="font-semibold">Phaitoon S.</h3>
+                                <p class="text-slate-400 text-sm">phaitoon2010@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500/10 text-yellow-400 text-xs px-2 py-1 rounded-full">⏳ Pending Setup</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Plan</div>
+                            <div class="font-medium">Scout $99/mo</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Signed Up</div>
+                            <div class="font-medium">Feb 3, 2026</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="setupCustomerBot('phaitoon')" class="flex-1 bg-tiger-600 hover:bg-tiger-500 py-2 rounded-lg font-medium text-sm transition">Deploy Bot</button>
+                        <button onclick="contactCustomer('phaitoon2010@gmail.com')" class="px-3 bg-slate-800 hover:bg-slate-700 py-2 rounded-lg transition">✉️</button>
+                    </div>
+                </div>
+
+                <!-- Customer 4: Tarida Sukavanich -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-2xl">👩</div>
+                            <div>
+                                <h3 class="font-semibold">Tarida Sukavanich</h3>
+                                <p class="text-slate-400 text-sm">taridadew@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500/10 text-yellow-400 text-xs px-2 py-1 rounded-full">⏳ Pending Setup</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Plan</div>
+                            <div class="font-medium">Scout $99/mo</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Signed Up</div>
+                            <div class="font-medium">Feb 3, 2026</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="setupCustomerBot('tarida')" class="flex-1 bg-tiger-600 hover:bg-tiger-500 py-2 rounded-lg font-medium text-sm transition">Deploy Bot</button>
+                        <button onclick="contactCustomer('taridadew@gmail.com')" class="px-3 bg-slate-800 hover:bg-slate-700 py-2 rounded-lg transition">✉️</button>
+                    </div>
+                </div>
+
+                <!-- Customer 5: Lily Vergara -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center text-2xl">👩</div>
+                            <div>
+                                <h3 class="font-semibold">Lily Vergara</h3>
+                                <p class="text-slate-400 text-sm">lily.vergara@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500/10 text-yellow-400 text-xs px-2 py-1 rounded-full">⏳ Pending Setup</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Plan</div>
+                            <div class="font-medium">Scout $99/mo</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Signed Up</div>
+                            <div class="font-medium">Feb 3, 2026</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="setupCustomerBot('lily')" class="flex-1 bg-tiger-600 hover:bg-tiger-500 py-2 rounded-lg font-medium text-sm transition">Deploy Bot</button>
+                        <button onclick="contactCustomer('lily.vergara@gmail.com')" class="px-3 bg-slate-800 hover:bg-slate-700 py-2 rounded-lg transition">✉️</button>
+                    </div>
+                </div>
+
+                <!-- Customer 6: Theera Phetmalaigul -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center text-2xl">👨</div>
+                            <div>
+                                <h3 class="font-semibold">Theera Phetmalaigul</h3>
+                                <p class="text-slate-400 text-sm">phetmalaigul@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500/10 text-yellow-400 text-xs px-2 py-1 rounded-full">⏳ Pending Setup</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Plan</div>
+                            <div class="font-medium">Scout $99/mo</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Signed Up</div>
+                            <div class="font-medium">Feb 3, 2026</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="setupCustomerBot('theera')" class="flex-1 bg-tiger-600 hover:bg-tiger-500 py-2 rounded-lg font-medium text-sm transition">Deploy Bot</button>
+                        <button onclick="contactCustomer('phetmalaigul@gmail.com')" class="px-3 bg-slate-800 hover:bg-slate-700 py-2 rounded-lg transition">✉️</button>
+                    </div>
+                </div>
+
+                <!-- Customer 7: John & Noon -->
+                <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center text-2xl">👫</div>
+                            <div>
+                                <h3 class="font-semibold">John & Noon</h3>
+                                <p class="text-slate-400 text-sm">vijohn@hotmail.com</p>
+                            </div>
+                        </div>
+                        <span class="bg-yellow-500/10 text-yellow-400 text-xs px-2 py-1 rounded-full">⏳ Pending Setup</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Plan</div>
+                            <div class="font-medium">Scout $99/mo</div>
+                        </div>
+                        <div class="bg-slate-800 rounded-lg p-2">
+                            <div class="text-slate-500 text-xs">Signed Up</div>
+                            <div class="font-medium">Feb 3, 2026</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="setupCustomerBot('johnnoon')" class="flex-1 bg-tiger-600 hover:bg-tiger-500 py-2 rounded-lg font-medium text-sm transition">Deploy Bot</button>
+                        <button onclick="contactCustomer('vijohn@hotmail.com')" class="px-3 bg-slate-800 hover:bg-slate-700 py-2 rounded-lg transition">✉️</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1269,6 +1505,31 @@
 
         function openAddBot() {
             alert('Add Bot wizard coming soon!\n\nThis will let you:\n- Create a new Telegram bot\n- Connect a LINE Official Account\n- Deploy an Agent Zero instance');
+        }
+
+        // Customer management functions
+        function openAddCustomer() {
+            alert('Add Customer form coming soon!\n\nCustomers will be auto-added when they:\n- Purchase via Stan Store\n- Sign up on BotCraftWrks.ai');
+        }
+
+        function setupCustomerBot(customerId) {
+            const customers = {
+                nancy: { name: 'Nancy Lim', email: 'nancylimsk@gmail.com' },
+                chana: { name: 'Chana Lohasaptawee', email: 'chana.loh@gmail.com' },
+                phaitoon: { name: 'Phaitoon S.', email: 'phaitoon2010@gmail.com' },
+                tarida: { name: 'Tarida Sukavanich', email: 'taridadew@gmail.com' },
+                lily: { name: 'Lily Vergara', email: 'lily.vergara@gmail.com' },
+                theera: { name: 'Theera Phetmalaigul', email: 'phetmalaigul@gmail.com' },
+                johnnoon: { name: 'John & Noon', email: 'vijohn@hotmail.com' }
+            };
+            const customer = customers[customerId];
+            if (customer) {
+                alert(`Deploy Tiger Bot for ${customer.name}\n\nThis will:\n1. Create a dedicated Telegram bot via BotFather\n2. Configure their discovery preferences\n3. Set up daily report schedule\n4. Send welcome message with bot link\n\nEmail: ${customer.email}`);
+            }
+        }
+
+        function contactCustomer(email) {
+            window.open(`mailto:${email}?subject=Your Tiger Bot Setup&body=Hi! Your Tiger Bot is ready...`, '_blank');
         }
 
         // Fetch feedback stats
